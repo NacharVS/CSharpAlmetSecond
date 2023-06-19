@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpSecond
+namespace CSharpSecond.Other
 {
     internal class User
     {
@@ -12,7 +12,7 @@ namespace CSharpSecond
         {
             _name = name;
             Age = age;
-            this.registrationDate = DateTime.Now;
+            registrationDate = DateTime.Now;
         }
 
         private string _name;

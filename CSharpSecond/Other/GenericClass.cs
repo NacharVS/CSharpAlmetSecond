@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpSecond
+namespace CSharpSecond.Other
 {
     internal class GenericClass
     {
         delegate R delegateOne<T, R>(T objectq);
-        public string   Name { get; set; }
+        public string Name { get; set; }
 
     }
 }

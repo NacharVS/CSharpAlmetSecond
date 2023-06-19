@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CSharpSecond
 {
-    internal class GenericClass<T>
+    internal class GenericClass
     {
+        delegate R delegateOne<T, R>(T objectq);
         public string   Name { get; set; }
-        public T GenegicField { get; set; } 
+
     }
 }

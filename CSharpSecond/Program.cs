@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using CSharpSecond;
+using System.Reflection;
 
 static async Task WorkAsync()
 {
@@ -62,11 +63,23 @@ static void GMethod<T>(T value)
 
 }
 
-GenericClass<int> g = new GenericClass<int>();
+
 Console.WriteLine("Main start");
-GMethod<int>(5);
-GMethod<string>("rrrssssdddd");
-GMethod(g);
+
+User user = new User("Ivan", 22);
+//Type type = Type.GetType("CSharpSecond.User");
+//Console.WriteLine(type.Name);
+//Type type = user.GetType();
+Type type = typeof(User);
+var fields = type.GetFields(BindingFlags.NonPublic | BindingFlags.Instance); 
+foreach (FieldInfo field in fields)
+{
+    if(field.Name == "_name")
+    {
+        field.SetValue(user, "Boris");
+    }
+}
+Console.WriteLine(user.Name);
 
 Console.WriteLine("Main end");
 

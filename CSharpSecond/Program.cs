@@ -37,11 +37,36 @@ static void Work()
     Console.WriteLine("Work2Async Ended");
 }
 
+static void GMethod<T>(T value)
+{
+    switch (value)
+    {
+        case int a:
+            {
+                int res = 1;
+                for (int i = 1; i <= a; i++)
+                {
+                    res = res * i;
+                }
+                Console.WriteLine(res);
+            }
 
+            break;
+        case string s:
+            Console.WriteLine(s.Length);
+            break;
+            default:
+            Console.WriteLine(value.GetType());
+            break;
+    }
+
+}
+
+GenericClass<int> g = new GenericClass<int>();
 Console.WriteLine("Main start");
-GenericClass<string> gClass = new GenericClass<string>();
-gClass.GenegicField = "ddd";
-Console.WriteLine(gClass.GenegicField.GetType().Name);
+GMethod<int>(5);
+GMethod<string>("rrrssssdddd");
+GMethod(g);
 
 Console.WriteLine("Main end");
 
